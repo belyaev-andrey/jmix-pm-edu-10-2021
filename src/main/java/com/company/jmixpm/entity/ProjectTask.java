@@ -1,8 +1,10 @@
 package com.company.jmixpm.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
+import io.jmix.core.metamodel.annotation.JmixProperty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,14 +26,16 @@ public class ProjectTask {
     @NotNull
     private String name;
 
-    @Column(name = "START_DATE")
+    @NotNull
+    @Column(name = "START_DATE", nullable = false)
     private LocalDateTime startDate;
 
     @Column(name = "END_DATE")
     private LocalDateTime endDate;
 
+    @NotNull
     @PositiveOrZero
-    @Column(name = "ESTIMATED_EFFORTS")
+    @Column(name = "ESTIMATED_EFFORTS", nullable = false)
     private Integer estimatedEfforts;
 
     @JoinColumn(name = "ASSIGNEE_ID")
@@ -41,6 +45,26 @@ public class ProjectTask {
     @JoinColumn(name = "PROJECT_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Project project;
+
+    @DependsOnProperties({"name", "project"})
+    @Transient
+    @JmixProperty
+    public String getCaption() {
+        return String.format("[%s] %s", project.getName(), name);
+    }
+
+    @DependsOnProperties({"startDate", "estimatedEfforts", "endDate"})
+    @Transient
+    @JmixProperty
+    public LocalDateTime getEstimatedEndDate() {
+        if (endDate != null) {
+            return endDate;
+        } else {
+            return startDate.plusHours(estimatedEfforts);
+        }
+    }
+
+
 
     public Project getProject() {
         return project;
