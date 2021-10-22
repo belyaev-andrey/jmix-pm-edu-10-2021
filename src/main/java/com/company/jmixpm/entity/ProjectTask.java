@@ -1,5 +1,6 @@
 package com.company.jmixpm.entity;
 
+import io.jmix.core.FileRef;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
@@ -45,6 +46,17 @@ public class ProjectTask {
     @JoinColumn(name = "PROJECT_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Project project;
+
+    @Column(name = "ATTACHEMENT")
+    private FileRef attachement;
+
+    public FileRef getAttachement() {
+        return attachement;
+    }
+
+    public void setAttachement(FileRef attachement) {
+        this.attachement = attachement;
+    }
 
     @DependsOnProperties({"name", "project"})
     @Transient

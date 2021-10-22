@@ -50,8 +50,19 @@ public class User implements JmixUserDetails {
     @Column(name = "ACTIVE")
     protected Boolean active = true;
 
+    @Column(name = "AVATAR")
+    private byte[] avatar;
+
     @Transient
     protected Collection<? extends GrantedAuthority> authorities;
+
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
+    }
 
     public UUID getId() {
         return id;

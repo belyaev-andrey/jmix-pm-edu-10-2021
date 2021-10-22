@@ -41,6 +41,13 @@
                     </actions>
                 </entityPicker>
                 <entityPicker id="projectField" property="project"/>
+                <fileStorageUpload id="fileUpload"
+                                   property="attachement"
+                                   showClearButton="true"
+                                   showFileName="true"
+                                   uploadButtonIcon="UPLOAD"
+                                   clearButtonIcon="EDITOR_CANCEL"
+                />
             </column>
         </form>
         <hbox id="editActions" spacing="true">
