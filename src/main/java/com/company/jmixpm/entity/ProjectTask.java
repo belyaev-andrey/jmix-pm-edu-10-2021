@@ -62,7 +62,7 @@ public class ProjectTask {
     @Transient
     @JmixProperty
     public String getCaption() {
-        return String.format("[%s] %s", project.getName(), name);
+        return String.format("[%s] %s", project != null ? project.getName() : "", name);
     }
 
     @DependsOnProperties({"startDate", "estimatedEfforts", "endDate"})
@@ -71,8 +71,10 @@ public class ProjectTask {
     public LocalDateTime getEstimatedEndDate() {
         if (endDate != null) {
             return endDate;
-        } else {
+        } else if (startDate != null && estimatedEfforts != null) {
             return startDate.plusHours(estimatedEfforts);
+        } else {
+            return null;
         }
     }
 
