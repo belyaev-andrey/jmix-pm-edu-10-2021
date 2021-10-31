@@ -36,8 +36,9 @@
         </filter>
         <hbox spacing="true" id="hbox" width="100%" expand="usersTable">
             <groupTable id="usersTable"
-                            dataContainer="usersDc"
-                            multiselect="true">
+                        dataContainer="usersDc"
+                        multiselect="true"
+                        height="100%">
                 <actions>
                     <action id="create" type="create"/>
                     <action id="edit" type="edit"/>
