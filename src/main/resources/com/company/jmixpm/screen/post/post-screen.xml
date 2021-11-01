@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://postScreen.caption">
+    <data>
+        <collection id="postsDc"
+                    class="com.company.jmixpm.entity.Post">
+            <loader id="postsDl"/>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+
+        <screen id="userInfoScreenFacet"
+                screenClass="com.company.jmixpm.screen.userinfo.UserInfoScreen"
+                onAction="postsTable.viewUserInfo"/>
+    </facets>
+    <layout>
+        <table id="postsTable"
+               height="100%"
+               width="100%"
+               dataContainer="postsDc">
+            <actions>
+                <action id="viewUserInfo"
+                        caption="View User Info"
+                        icon="VIEW_ACTION"
+                        trackSelection="true"/>
+            </actions>
+            <columns>
+                <column id="title"/>
+                <column id="body"/>
+                <column id="userId"/>
+            </columns>
+            <buttonsPanel>
+                <button action="postsTable.viewUserInfo"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
