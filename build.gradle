@@ -12,9 +12,10 @@ jmix {
 
 group = 'com.company'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+//sourceCompatibility = '1.8'
 
 repositories {
+    mavenLocal()
     mavenCentral()
     maven {
         url 'https://global.repo.jmix.io/repository/public'
@@ -26,7 +27,6 @@ dependencies {
     implementation 'io.jmix.data:jmix-eclipselink-starter'
     implementation 'io.jmix.ui:jmix-ui-starter'
     implementation 'io.jmix.ui:jmix-ui-data-starter'
-    implementation 'io.jmix.ui:jmix-ui-themes-compiled'
     implementation 'io.jmix.ui:jmix-ui-widgets-compiled'
     implementation 'io.jmix.security:jmix-security-starter'
     implementation 'io.jmix.security:jmix-security-ui-starter'
@@ -40,6 +40,10 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     runtimeOnly 'org.postgresql:postgresql'
+
+    implementation 'com.company:demo-theme-addon:0.0.1-SNAPSHOT'
+    implementation("io.jmix.ui:jmix-ui-themes")
+    themes("io.jmix.ui:jmix-ui-themes")
 }
 
 test {

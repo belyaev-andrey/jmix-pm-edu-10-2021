@@ -81,7 +81,7 @@
                     <button id="editBtn" action="usersTable.edit"/>
                     <button id="removeBtn" action="usersTable.remove"/>
                     <button id="showRoleAssignmentsBtn" action="usersTable.showRoleAssignments"/>
-                    <button id="sendEmailBtn" action="usersTable.sendEmail"/>
+                    <button id="sendEmailBtn" action="usersTable.sendEmail" stylename="backgroundless"/>
                     <popupButton id="additionalActionsBtn" caption="msg://additional" icon="GEARS">
                         <actions>
                             <action id="usersTable.changePassword"/>

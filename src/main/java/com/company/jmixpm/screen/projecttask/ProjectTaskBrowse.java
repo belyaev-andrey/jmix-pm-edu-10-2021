@@ -35,4 +35,19 @@ public class ProjectTaskBrowse extends StandardLookup<ProjectTask> {
         }
         return components.create(Label.class);
     }
+
+    @Install(to = "projectTasksTable", subject = "styleProvider")
+    private String projectTasksTableStyleProvider(ProjectTask entity, String property) {
+        // for a cell
+        if ("estimatedEfforts".equals(property) && entity.getEstimatedEfforts() == 0) {
+            return "no-estimated-efforts";
+        }
+
+        // for a row
+        if (property == null && entity.getEstimatedEfforts() == 0) {
+            return "no-estimated-efforts";
+        }
+
+        return null;
+    }
 }
