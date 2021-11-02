@@ -2,10 +2,7 @@ package com.company.jmixpm.entity;
 
 import io.jmix.core.FileRef;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
-import io.jmix.core.metamodel.annotation.DependsOnProperties;
-import io.jmix.core.metamodel.annotation.InstanceName;
-import io.jmix.core.metamodel.annotation.JmixEntity;
-import io.jmix.core.metamodel.annotation.JmixProperty;
+import io.jmix.core.metamodel.annotation.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -47,8 +44,20 @@ public class ProjectTask {
     @ManyToOne(fetch = FetchType.LAZY)
     private Project project;
 
+    @PropertyDatatype("color")
+    @Column(name = "COLOR")
+    private String color;
+
     @Column(name = "ATTACHEMENT")
     private FileRef attachement;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public FileRef getAttachement() {
         return attachement;

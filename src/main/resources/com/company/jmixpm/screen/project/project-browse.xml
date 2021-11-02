@@ -15,7 +15,6 @@
                 </query>
             </loader>
         </collection>
-
         <collection id="tasksDc"
                     class="com.company.jmixpm.entity.ProjectTask">
             <fetchPlan extends="_base">
@@ -35,7 +34,6 @@
                                         param="project"/>
             </refresh>
         </dataLoadCoordinator>
-
         <screenSettings id="settingsFacet" auto="true"/>
     </facets>
     <actions>
@@ -55,7 +53,6 @@
                 dataLoader="projectsDl">
             <properties include=".*"/>
         </filter>
-
         <split id="split" width="100%" orientation="horizontal">
             <groupTable id="projectsTable"
                         width="100%"
@@ -80,7 +77,6 @@
                     <button id="removeBtn" action="projectsTable.remove"/>
                 </buttonsPanel>
             </groupTable>
-
             <table id="tasksTable"
                    dataContainer="tasksDc"
                    width="100%"
@@ -88,6 +84,7 @@
                 <columns>
                     <column id="name"/>
                     <column id="project"/>
+                    <column id="color"/>
                 </columns>
             </table>
         </split>
