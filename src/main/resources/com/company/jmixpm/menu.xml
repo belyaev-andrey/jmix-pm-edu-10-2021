@@ -12,6 +12,7 @@
         <item screen="PostScreen" caption="msg://com.company.jmixpm.screen.post/postScreen.caption"/>
         <item screen="City.browse" caption="msg://com.company.jmixpm.screen.city/cityBrowse.menu"/>
         <item screen="Category.browse" caption="msg://com.company.jmixpm.screen.category/categoryBrowse.menu"/>
+        <item screen="Sandbox" caption="msg://com.company.jmixpm.screen.sandbox/sandbox.caption"/>
     </menu>
 
 </menu-config>

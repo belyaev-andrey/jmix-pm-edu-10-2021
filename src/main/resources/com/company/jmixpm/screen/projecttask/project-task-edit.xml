@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:app="http://schemas.company.com/demo/0.1/app-ui-components.xsd"
         caption="msg://projectTaskEdit.caption"
         focusComponent="form">
     <data>
@@ -49,8 +50,8 @@
                                    clearButtonIcon="EDITOR_CANCEL"
                 />
 
-                <field id="colorField" property="color"/>
-
+<!--                <field id="colorField" property="color"/>-->
+                <app:colorField id="colorField" property="color" required="true"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
