@@ -12,4 +12,23 @@
             </xs:complexContent>
         </xs:complexType>
     </xs:element>
+
+    <xs:element name="stepper">
+        <xs:complexType>
+            <xs:attribute name="id" type="xs:string"/>
+
+            <xs:attribute name="caption" type="xs:string"/>
+            <xs:attribute name="height" type="xs:string"/>
+            <xs:attribute name="width" type="xs:string"/>
+
+            <xs:attribute name="dataContainer" type="xs:string"/>
+            <xs:attribute name="property" type="xs:string"/>
+
+            <xs:attribute name="manualInput" type="xs:boolean"/>
+            <xs:attribute name="mouseWheel" type="xs:boolean"/>
+            <xs:attribute name="stepAmount" type="xs:int"/>
+            <xs:attribute name="maxValue" type="xs:int"/>
+            <xs:attribute name="minValue" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

@@ -2,6 +2,9 @@ package com.company.jmixpm;
 
 import com.company.jmixpm.component.ColorField;
 import com.company.jmixpm.component.ColorFieldLoader;
+import com.company.jmixpm.component.Stepper;
+import com.company.jmixpm.component.StepperLoader;
+import com.company.jmixpm.component.impl.StepperImpl;
 import com.google.common.base.Strings;
 import io.jmix.ui.sys.registration.ComponentRegistration;
 import io.jmix.ui.sys.registration.ComponentRegistrationBuilder;
@@ -57,6 +60,14 @@ public class JmixPmApplication extends SpringBootServletInitializer {
         return ComponentRegistrationBuilder.create(ColorField.NAME)
                 .withComponentClass(ColorField.class)
                 .withComponentLoaderClass(ColorFieldLoader.class)
+                .build();
+    }
+
+    @Bean
+    public ComponentRegistration stepperField() {
+        return ComponentRegistrationBuilder.create(Stepper.NAME)
+                .withComponentClass(StepperImpl.class)
+                .withComponentLoaderClass(StepperLoader.class)
                 .build();
     }
 }

@@ -46,4 +46,16 @@
       display: none;
     }
   }
+
+  .stepper {
+    input[type="text"] {
+      @include box-defaults;
+      @include valo-textfield-style;
+      @include he-input-style;
+    }
+
+    .stepper-up, .stepper-down {
+      line-height: .9;
+    }
+  }
 }

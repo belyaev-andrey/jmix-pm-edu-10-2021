@@ -20,6 +20,9 @@ repositories {
     maven {
         url 'https://global.repo.jmix.io/repository/public'
     }
+    maven {
+        url 'https://maven.vaadin.com/vaadin-addons'
+    }
 }
 
 dependencies {
@@ -27,7 +30,6 @@ dependencies {
     implementation 'io.jmix.data:jmix-eclipselink-starter'
     implementation 'io.jmix.ui:jmix-ui-starter'
     implementation 'io.jmix.ui:jmix-ui-data-starter'
-    implementation 'io.jmix.ui:jmix-ui-widgets-compiled'
     implementation 'io.jmix.security:jmix-security-starter'
     implementation 'io.jmix.security:jmix-security-ui-starter'
     implementation 'io.jmix.security:jmix-security-data-starter'
@@ -46,6 +48,19 @@ dependencies {
     themes("io.jmix.ui:jmix-ui-themes")
 
     implementation 'org.webjars.npm:quill:1.3.6'
+
+    implementation 'io.jmix.ui:jmix-ui-widgets'
+    widgets 'io.jmix.ui:jmix-ui-widgets'
+
+    implementation 'org.vaadin.addons:stepper:2.4.0'
+    widgets 'org.vaadin.addons:stepper:2.4.0'
+
+    implementation 'com.company:demo-widget-addon:0.0.1-SNAPSHOT'
+    widgets 'com.company:demo-widget-addon:0.0.1-SNAPSHOT'
+}
+
+compileWidgets {
+    generate 'com.company.jmixpm.widgets.WidgetSet'
 }
 
 test {

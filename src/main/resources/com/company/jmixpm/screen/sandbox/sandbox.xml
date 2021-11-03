@@ -2,8 +2,18 @@
 <window xmlns="http://jmix.io/schema/ui/window"
         caption="msg://sandbox.caption">
     <layout>
-        <vbox spacing="true">
+        <vbox id="quillBox" spacing="true">
+            <hbox spacing="true">
+                <button id="clearQuillEditorBtn" caption="Clear" icon="ERASER"/>
+                <button id="randomValueBtn" caption="Set Random Value" icon="REFRESH"/>
+            </hbox>
+        </vbox>
+
+        <!--<vbox spacing="true">
+            <vbox id="stepperWrapper"/>
+
             <button id="clearQuillBtn" caption="Clear" icon="ERASER"/>
+
             <jsComponent id="quill"
                          initFunctionName="com_company_demo_QuillTextEditor"
                          height="200px"
@@ -14,6 +24,6 @@
                     <dependency path="vaadin://quill/quill-connector.js"/>
                 </dependencies>
             </jsComponent>
-        </vbox>
+        </vbox>-->
     </layout>
 </window>

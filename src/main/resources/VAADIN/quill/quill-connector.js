@@ -7,7 +7,7 @@ com_company_demo_QuillTextEditor = function () {
         let state = connector.getState();
         let options = state.data;
 
-        var quill = new Quill('#editor', options);
+        let quill = new Quill('#editor', options);
 
         quill.on('text-change', function (delta, oldDelta, source) {
             if (source === 'user') {
