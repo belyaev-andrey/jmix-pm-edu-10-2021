@@ -1,13 +1,14 @@
 plugins {
-    id 'io.jmix' version '1.0.3'
+    id 'io.jmix' version '1.1.0'
     id 'java'
     id 'war'
+    id 'com.palantir.docker' version '0.30.0'
 }
 
 apply plugin: 'org.springframework.boot'
 
 jmix {
-    bomVersion = '1.0.3' 
+    bomVersion = '1.1.0'
 }
 
 group = 'com.company'
@@ -15,11 +16,12 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-    mavenCentral() 
+    mavenCentral()
     maven {
         url 'https://global.repo.jmix.io/repository/public'
-    } 
+    }
 }
+
 
 dependencies {
     implementation 'io.jmix.core:jmix-core-starter'
@@ -44,4 +46,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+docker {
+    dependsOn(bootJar)
+    name "$rootProject.name:$version"
+    dockerfile file('docker/Dockerfile')
+    files tasks.bootJar.outputs
 }
