@@ -1,4 +1,4 @@
-package com.company.jmixpm.entity.category;
+package com.company.jmixpm.screen.category;
 
 import io.jmix.ui.screen.*;
 import com.company.jmixpm.entity.Category;
