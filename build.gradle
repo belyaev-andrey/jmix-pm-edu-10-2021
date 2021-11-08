@@ -1,7 +1,6 @@
 plugins {
     id 'io.jmix' version '1.1.0'
     id 'java'
-    id 'war'
     id 'com.palantir.docker' version '0.30.0'
 }
 
@@ -48,8 +47,13 @@ test {
     useJUnitPlatform()
 }
 
+bootBuildImage {
+    builder = "paketobuildpacks/builder:base"
+    imageName = "docker.io/library/${project.name}:${project.version}"
+}
+
 docker {
-    dependsOn(bootJar)
+    dependsOn(tasks.bootJar)
     name "$rootProject.name:$version"
     dockerfile file('docker/Dockerfile')
     files tasks.bootJar.outputs
