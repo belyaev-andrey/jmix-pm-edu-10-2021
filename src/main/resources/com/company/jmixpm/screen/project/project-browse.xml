@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
         xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        xmlns:search="http://jmix.io/schema/search/ui"
         caption="msg://projectBrowse.caption"
         focusComponent="projectsTable">
     <data readOnly="true">
@@ -33,6 +34,9 @@
     <dialogMode height="600"
                 width="800"/>
     <layout expand="projectsTable" spacing="true">
+        <hbox>
+            <search:searchField id="projectSearchField" entities="Project"/>
+        </hbox>
         <filter id="filter"
                 dataLoader="projectsDl">
             <properties include=".*"/>
@@ -57,6 +61,7 @@
                 <button id="createBtn" action="projectsTable.create"/>
                 <button id="editBtn" action="projectsTable.edit"/>
                 <button id="removeBtn" action="projectsTable.remove"/>
+                <button id="reIndexBtn" caption="msg://reindex" icon="font-icon:PENCIL"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

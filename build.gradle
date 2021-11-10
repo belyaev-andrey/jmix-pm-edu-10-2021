@@ -40,6 +40,10 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     runtimeOnly 'org.postgresql:postgresql'
+    implementation("io.jmix.search:jmix-search-ui-starter")
+    implementation("io.jmix.search:jmix-search-starter")
+
+    implementation("org.springframework.boot:spring-boot-starter-quartz")
 }
 
 test {

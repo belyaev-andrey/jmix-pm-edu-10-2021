@@ -9,6 +9,8 @@
         <item screen="TimeEntry.browse" caption="msg://com.company.jmixpm.screen.timeentry/timeEntryBrowse.menu"/>
         <item screen="ProjectStats.browse"
               caption="msg://com.company.jmixpm.screen.projectstats/projectStatsBrowse.menu"/>
+        <item screen="TaskSearchDto.browse"
+              caption="msg://com.company.jmixpm.screen.tasksearchdto/taskSearchDtoBrowse.menu"/>
     </menu>
 
 </menu-config>
