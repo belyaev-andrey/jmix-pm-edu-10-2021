@@ -33,6 +33,9 @@ dependencies {
     implementation 'io.jmix.security:jmix-security-ui-starter'
     implementation 'io.jmix.security:jmix-security-data-starter'
     implementation 'io.jmix.localfs:jmix-localfs-starter'
+    implementation("io.jmix.security:jmix-security-oauth2-starter")
+    implementation("io.jmix.rest:jmix-rest-starter")
+    implementation ("io.jmix.graphql:jmix-graphql-starter")
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
@@ -61,6 +64,8 @@ dependencies {
 
     testImplementation 'org.testcontainers:selenium:1.15.2'
     testImplementation 'org.testcontainers:junit-jupiter:1.15.2'
+
+    testImplementation ("com.graphql-java-kickstart:graphql-spring-boot-starter-test:11.0.0")
 
 }
 

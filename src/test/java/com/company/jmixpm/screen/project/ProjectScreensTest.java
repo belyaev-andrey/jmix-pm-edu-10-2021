@@ -1,11 +1,13 @@
 package com.company.jmixpm.screen.project;
 
+import com.company.jmixpm.JmixPmApplication;
 import com.company.jmixpm.screen.login.LoginScreenUi;
 import com.company.jmixpm.screen.main.MainScreenUi;
 import com.company.jmixpm.screen.user.UserBrowseUi;
 import io.jmix.masquerade.Selectors;
 import io.jmix.masquerade.component.HasActions;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static com.codeborne.selenide.Selenide.open;
 import static io.jmix.masquerade.Conditions.ENABLED;
@@ -13,6 +15,7 @@ import static io.jmix.masquerade.Conditions.VISIBLE;
 import static io.jmix.masquerade.Selectors.$j;
 
 //@ExtendWith(ChromeExtension.class)
+//Doesn't work with Spock tests, @see com.vaadin.spring.server.SpringUIProvider.detectUIs:113
 //@SpringBootTest(classes = JmixPmApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
 //        properties = {"jmix.ui.testMode=true"})
 public class ProjectScreensTest {
