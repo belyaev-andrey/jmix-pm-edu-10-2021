@@ -11,6 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 @JmixEntity
@@ -62,18 +63,15 @@ public class ProjectTask {
     @Transient
     @JmixProperty
     public String getCaption() {
-        return String.format("[%s] %s", project.getName(), name);
+        return String.format("[%s] %s", project != null? project.getName() : "", name);
     }
 
     @DependsOnProperties({"startDate", "estimatedEfforts", "endDate"})
     @Transient
     @JmixProperty
     public LocalDateTime getEstimatedEndDate() {
-        if (endDate != null) {
-            return endDate;
-        } else {
-            return startDate.plusHours(estimatedEfforts);
-        }
+        return Objects.requireNonNullElseGet(endDate,
+                () -> startDate != null ? startDate.plusHours(estimatedEfforts) : LocalDateTime.now());
     }
 
 

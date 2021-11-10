@@ -1,31 +1,39 @@
 package com.company.jmixpm.screen.projecttask
 
+import com.company.jmixpm.JmixPmApplication
+import com.company.jmixpm.entity.ProjectTask
+import com.company.jmixpm.entity.User
 import com.company.jmixpm.extensions.PostgreSqlExtension
+import com.company.jmixpm.extensions.TestContextInitializer
+import com.company.jmixpm.screen.main.MainScreen
 import io.jmix.core.DataManager
 import io.jmix.core.FluentValuesLoader
+import io.jmix.core.entity.KeyValueEntity
 import io.jmix.core.security.SystemAuthenticator
 import io.jmix.ui.ScreenBuilders
-import io.jmix.ui.builder.ScreenBuilder
+import io.jmix.ui.screen.OpenMode
 import io.jmix.ui.testassist.spec.UiTestAssistSpecification
 import org.junit.jupiter.api.extension.ExtendWith
 import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.TestPropertySource
 
 @SpringBootTest
 @ExtendWith([PostgreSqlExtension.class])
 @TestPropertySource("/app-test.properties")
+@ContextConfiguration(classes = JmixPmApplication)
 class taskEditTest extends UiTestAssistSpecification {
 
     @Autowired
-    ScreenBuilders screenBuilders;
+    ScreenBuilders screenBuilders
 
     @SpringBean
-    DataManager dataManager = Stub();
+    DataManager dataManager = Stub()
 
     @Autowired
-    SystemAuthenticator systemAuthenticator;
+    SystemAuthenticator systemAuthenticator
 
     @Override
     protected void setupAuthentication() {
@@ -37,8 +45,8 @@ class taskEditTest extends UiTestAssistSpecification {
         systemAuthenticator.end()
     }
 
-
     def "Check that screen sets the least busy user"() {
+
         given: "Create test data"
         def user1 = metadata.create(User)
         user1.username = "user1"
@@ -54,7 +62,7 @@ class taskEditTest extends UiTestAssistSpecification {
         def entities = [entity1, entity2]
 
         and: "Stub for data data manager"
-        FluentValuesLoader valueLoader = Stub(FluentValuesLoader);
+        FluentValuesLoader valueLoader = Stub(FluentValuesLoader)
         valueLoader.properties("user", "tasks") >> valueLoader
         valueLoader.list() >> entities
         dataManager.loadValues(_ as String) >> valueLoader
