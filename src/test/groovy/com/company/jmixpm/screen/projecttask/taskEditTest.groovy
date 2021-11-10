@@ -4,8 +4,7 @@ import com.company.jmixpm.JmixPmApplication
 import com.company.jmixpm.entity.ProjectTask
 import com.company.jmixpm.entity.User
 import com.company.jmixpm.extensions.PostgreSqlExtension
-import com.company.jmixpm.extensions.TestContextInitializer
-import com.company.jmixpm.screen.main.MainScreen
+import com.company.jmixpm.screen.main.MainScreenUi
 import io.jmix.core.DataManager
 import io.jmix.core.FluentValuesLoader
 import io.jmix.core.entity.KeyValueEntity
@@ -17,13 +16,11 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.TestPropertySource
 
-@SpringBootTest
+@SpringBootTest(classes = JmixPmApplication)
 @ExtendWith([PostgreSqlExtension.class])
 @TestPropertySource("/app-test.properties")
-@ContextConfiguration(classes = JmixPmApplication)
 class taskEditTest extends UiTestAssistSpecification {
 
     @Autowired
@@ -68,7 +65,7 @@ class taskEditTest extends UiTestAssistSpecification {
         dataManager.loadValues(_ as String) >> valueLoader
 
         and: "Open Task editor"
-        def mainScreen = vaadinUi.screens.create(MainScreen, OpenMode.ROOT)
+        def mainScreen = vaadinUi.screens.create(MainScreenUi, OpenMode.ROOT)
         vaadinUi.screens.show(mainScreen)
         def taskEdit = screenBuilders.editor(ProjectTask, mainScreen)
                 .withScreenClass(ProjectTaskEdit)

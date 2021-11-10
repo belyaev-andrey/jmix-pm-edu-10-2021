@@ -2,7 +2,7 @@
 <window xmlns="http://jmix.io/schema/ui/window"
         xmlns:c="http://jmix.io/schema/ui/jpql-condition"
         xmlns:search="http://jmix.io/schema/search/ui"
-        caption="msg://projectBrowse.caption"
+        caption="msg://projectBrowseUi.caption"
         focusComponent="projectsTable">
     <data readOnly="true">
         <collection id="projectsDc"

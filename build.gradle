@@ -51,8 +51,22 @@ dependencies {
 
     testImplementation 'io.jmix.ui:jmix-ui-test-assist'
 
+    implementation('org.jsoup:jsoup') {
+        version {
+            strictly '1.11.2'
+        }
+    }
+    testImplementation 'com.codeborne:selenide:5.20.1'
+    testImplementation 'io.jmix.masquerade:jmix-masquerade:1.0.0'
+
+    testImplementation 'org.testcontainers:selenium:1.15.2'
+    testImplementation 'org.testcontainers:junit-jupiter:1.15.2'
+
 }
 
 test {
     useJUnitPlatform()
+    systemProperty 'selenide.baseUrl', 'http://localhost:8080'
+    //systemProperty 'selenide.baseUrl', 'http://host.docker.internal:8080'
+
 }
