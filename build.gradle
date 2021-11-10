@@ -5,6 +5,7 @@ plugins {
 }
 
 apply plugin: 'org.springframework.boot'
+apply plugin: 'groovy'
 
 jmix {
     bomVersion = '1.1.0'
@@ -12,7 +13,7 @@ jmix {
 
 group = 'com.company'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
@@ -44,6 +45,12 @@ dependencies {
     implementation("io.jmix.search:jmix-search-starter")
 
     implementation("org.springframework.boot:spring-boot-starter-quartz")
+
+    testImplementation 'org.testcontainers:postgresql:1.15.2'
+    testRuntimeOnly 'org.postgresql:postgresql:42.2.19'
+
+    testImplementation 'io.jmix.ui:jmix-ui-test-assist'
+
 }
 
 test {

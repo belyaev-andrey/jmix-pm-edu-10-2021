@@ -14,10 +14,14 @@ import java.time.LocalDateTime;
 @Service
 public class TaskServiceProd implements TaskService {
 
-    @Autowired
     private DataManager dataManager;
-    @Autowired
+
     private CurrentAuthentication currentAuthentication;
+
+    public TaskServiceProd(DataManager dataManager, CurrentAuthentication currentAuthentication) {
+        this.dataManager = dataManager;
+        this.currentAuthentication = currentAuthentication;
+    }
 
     @Override
     public User findLeastBusyUser() {
