@@ -70,6 +70,9 @@ public class ProjectTask {
     @Transient
     @JmixProperty
     public LocalDateTime getEstimatedEndDate() {
+        if (estimatedEfforts == null) {
+            estimatedEfforts = 0;
+        }
         return Objects.requireNonNullElseGet(endDate,
                 () -> startDate != null ? startDate.plusHours(estimatedEfforts) : LocalDateTime.now());
     }

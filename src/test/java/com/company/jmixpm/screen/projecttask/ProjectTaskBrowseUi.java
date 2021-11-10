@@ -13,10 +13,10 @@ public class ProjectTaskBrowseUi extends Composite<ProjectTaskBrowse> {
     @Wire
     private Button createBtn;
     @Wire
-    private Table tasksTable;
+    private Table projectTasksTable;
 
     public Table getTasksTable() {
-        return tasksTable;
+        return projectTasksTable;
     }
 
     public ProjectTaskEditUi create() {

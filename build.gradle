@@ -2,6 +2,7 @@ plugins {
     id 'io.jmix' version '1.1.0'
     id 'java'
     id 'war'
+    id 'org.gauge' version '1.8.0'
 }
 
 apply plugin: 'org.springframework.boot'
@@ -66,6 +67,8 @@ dependencies {
     testImplementation 'org.testcontainers:junit-jupiter:1.15.2'
 
     testImplementation ("com.graphql-java-kickstart:graphql-spring-boot-starter-test:11.0.0")
+
+    testImplementation 'com.thoughtworks.gauge:gauge-java:0.7.15'
 
 }
 

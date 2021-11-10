@@ -40,7 +40,12 @@
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
                 </entityPicker>
-                <entityPicker id="projectField" property="project"/>
+                <entityPicker id="projectField" property="project">
+                    <actions>
+                        <action id="entityLookup" type="entity_lookup"/>
+                        <action id="entityClear" type="entity_clear"/>
+                    </actions>
+                </entityPicker>
                 <fileStorageUpload id="fileUpload"
                                    property="attachement"
                                    showClearButton="true"
