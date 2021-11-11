@@ -8,7 +8,7 @@
           "user-agent": "JS GraphQL",
           "Authorization": "bearer"
         },
-        "introspect": false
+        "introspect": true
       }
     }
   }
