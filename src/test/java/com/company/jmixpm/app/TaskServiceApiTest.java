@@ -1,16 +1,19 @@
 package com.company.jmixpm.app;
 
 import com.company.jmixpm.JmixPmApplication;
+import com.company.jmixpm.extensions.PostgreSqlExtension;
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JacksonJsonParser;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -22,7 +25,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@ExtendWith(PostgreSqlExtension.class)
 @SpringBootTest(classes = JmixPmApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@TestPropertySource("/app-test.properties")
 @AutoConfigureMockMvc
 public class TaskServiceApiTest {
 
@@ -40,7 +45,7 @@ public class TaskServiceApiTest {
                 .postForResource("com/company/jmixpm/api/query-least-busy-user.gql");
 
         Assertions.assertEquals(response.getRawResponse().getBody(),
-                "{\"data\":{\"leastBusyUser\":{\"username\":\"dev2\"}}}");
+                "{\"data\":{\"leastBusyUser\":{\"username\":\"admin\"}}}");
     }
 
     String getAccessToken() throws Exception {
