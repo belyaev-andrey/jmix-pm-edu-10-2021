@@ -10,7 +10,7 @@ import io.jmix.ui.widget.JmixPickerField;
 
 import static io.jmix.masquerade.Components.wire;
 
-public class ProjectBrowseUi extends Composite<ProjectBrowseUi> {
+public class ProjectBrowseUi extends Composite<ProjectBrowse> {
 
     @Wire
     private Button createBtn;

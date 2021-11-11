@@ -6,7 +6,7 @@ import io.jmix.masquerade.Wire;
 import io.jmix.masquerade.base.Composite;
 import io.jmix.masquerade.component.SideMenu;
 
-public class MainScreenUi extends Composite<MainScreenUi> {
+public class MainScreenUi extends Composite<MainScreen> {
 
     @Wire
     private SideMenu sideMenu;

@@ -58,7 +58,7 @@ public class ProjectScreensTest {
         UserBrowseUi userBrowse = projectEdit.getManagerField()
                 .shouldBe(VISIBLE, ENABLED)
                 .triggerAction(UserBrowseUi.class, new HasActions.Action("entityLookup"));
-        userBrowse.selectUser("dev1");
+        userBrowse.selectUser("admin");
 
         // save project
         projectEdit.commitAndClose();

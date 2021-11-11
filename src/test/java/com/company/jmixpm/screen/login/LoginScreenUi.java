@@ -5,7 +5,7 @@ import io.jmix.masquerade.base.Composite;
 import io.jmix.masquerade.component.*;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginScreenUi extends Composite<LoginScreenUi> {
+public class LoginScreenUi extends Composite<LoginScreen> {
 
     @Wire
     private TextField usernameField;
