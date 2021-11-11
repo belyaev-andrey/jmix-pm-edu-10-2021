@@ -35,7 +35,7 @@ dependencies {
     implementation 'io.jmix.localfs:jmix-localfs-starter'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
-
+    implementation 'com.hazelcast:hazelcast'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -55,6 +55,6 @@ bootBuildImage {
 docker {
     dependsOn(tasks.bootJar)
     name "$rootProject.name:$version"
-    dockerfile file('docker/Dockerfile')
+    dockerfile file('docker/Dockerfile.layered')
     files tasks.bootJar.outputs
 }
