@@ -21,7 +21,6 @@ repositories {
     }
 }
 
-
 dependencies {
     implementation 'io.jmix.core:jmix-core-starter'
     implementation 'io.jmix.data:jmix-eclipselink-starter'
@@ -34,9 +33,20 @@ dependencies {
     implementation 'io.jmix.security:jmix-security-data-starter'
     implementation 'io.jmix.localfs:jmix-localfs-starter'
 
+    implementation "org.springframework.boot:spring-boot-starter-undertow"
+    modules {
+        module("org.springframework.boot:spring-boot-starter-tomcat") {
+            replacedBy("org.springframework.boot:spring-boot-starter-undertow", "Use Undertow instead of Reactor Netty")
+        }
+    }
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.hazelcast:hazelcast'
     implementation 'com.hazelcast:hazelcast-kubernetes:2.2.3'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-vault-config', version: '3.0.4'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

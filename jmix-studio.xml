@@ -35,6 +35,11 @@
       </entry>
     </moduleSettings>
   </component>
+  <component name="JmixLiquibaseChangesConfig">
+    <exclude-change idName="oauth_access_token" tagName="dropTable" />
+    <exclude-change idName="oauth_refresh_token" tagName="dropTable" />
+    <exclude-change idName="search_indexing_queue" tagName="dropTable" />
+  </component>
   <component name="JmixPluginProjectSettings">
     <option name="savedDbProperties">
       <list>
